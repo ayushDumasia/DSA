@@ -61,13 +61,6 @@ void display(int st[], int *top){
 }
 
 void main(){
-    time_t Time;
-    time(&Time);
-    char *time = ctime(&Time);
-    printf("\nTime of execution: %s\n", time);
-
-    printf("Name: Harsh Patel, Enrollment no.: 220170116035\n");
-
     int st[size], top = -1;
 
     printf("\n---------------Push---------------\n");
