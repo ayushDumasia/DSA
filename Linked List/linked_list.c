@@ -81,8 +81,11 @@ void insertInPos(node **head){
 
 void display(node **head){
     node *temp = *head;
+    if(*head == NULL){
+        printf("Linked List is Empty\n");
+    }
     while(temp != NULL){
-        printf("%d : %p->",temp->data , temp->next);
+        printf("%d:%p-> ",temp->data , temp->next);
         temp = temp->next;
     }
     printf("NULL\n");
@@ -90,7 +93,7 @@ void display(node **head){
 }
 void deleteHead(node **head){
     if(*head == NULL){
-        printf("Stack is empty\n");
+        printf("Linked List is empty\n");
     }
     else {
         node *temp = *head;
@@ -152,23 +155,17 @@ void findLength(node **head){
 int main(){
     node *head = NULL;
 
-    // insertAtBeginning(&head);
-    // insertAtBeginning(&head);
-    // insertAtBeginning(&head);
-    // insertAtEnd(&head);
-    // insertAtBeginning(&head);
-    // insertAtBeginning(&head);
-    // insertAtBeginning(&head);
-    // insertAtBeginning(&head);
-    // findLength(&head);
-    // deleteHead(&head);
-    // deleteEnd(&head);
-    // deleteAtPos(&head);
-    // insertInPos(&head);
-    insertInorder(&head);
-    insertInorder(&head);
-    insertInorder(&head);
-    insertInorder(&head);
+    insertAtBeginning(&head);
+    insertAtBeginning(&head);
+    insertAtBeginning(&head);
+    insertAtBeginning(&head);
+    insertAtBeginning(&head);
+    deleteHead(&head);
+    deleteHead(&head);
+    deleteHead(&head);
+    deleteHead(&head);
+    deleteHead(&head);
+    deleteHead(&head);
     display(&head);
 
 
