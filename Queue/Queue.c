@@ -47,7 +47,7 @@ int peep(int a[],int *head){
 
 
 int display(int a[],int *head,int *tail){
-    int i = *head;
+    // int i = *head;
     if(*head == -1 && *tail == -1){
         printf("Queue is  empty\n");   
     }
