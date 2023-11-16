@@ -43,12 +43,12 @@ void insertAtBeginning(node **head){
 }
 
 void insertAtEnd(node **head){
-    node *temp,*new = create();
+    node *new = create();
     if(head == NULL){
         *head = new;
     }
     else {
-        temp = *head;
+        node *temp = *head;
         while (temp->next != NULL){
             temp = temp->next;
         }
@@ -124,9 +124,9 @@ void deleteEnd(node **head){
 
 void deleteAtPos(node **head){
     node *temp = *head;
-    node *newnode;
+    node *prenode;
     int pos, i = 1;
-    printf("Enter a position to insert : ");
+    printf("Enter a position to delete  : ");
     scanf("%d",&pos);
 
     while(i < pos -1){
@@ -134,10 +134,10 @@ void deleteAtPos(node **head){
         i++;
     }
 
-    newnode = temp->next;
-    temp->next = newnode->next;
+    prenode = temp->next;
+    temp->next = prenode->next;
 
-    free(newnode);
+    free(prenode);
 }
 
 void findLength(node **head){
@@ -160,12 +160,13 @@ int main(){
     insertAtBeginning(&head);
     insertAtBeginning(&head);
     insertAtBeginning(&head);
-    deleteHead(&head);
-    deleteHead(&head);
-    deleteHead(&head);
-    deleteHead(&head);
-    deleteHead(&head);
-    deleteHead(&head);
+    // deleteHead(&head);
+    // deleteHead(&head);
+    // deleteHead(&head);
+    // deleteHead(&head);
+    // deleteHead(&head);
+    // deleteHead(&head);
+    deleteAtPos(&head);
     display(&head);
 
 
