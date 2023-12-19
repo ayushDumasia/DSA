@@ -121,7 +121,7 @@ void deleteAtPos(node **head){
 int main(){
 
 node *head = NULL;
-          
+
 insertAtBeginning(&head);
 // insertAtBeginning(&head);
 // insertAtBeginning(&head);
@@ -137,6 +137,6 @@ insertAtEnd(&head);
 deleteAtPos(&head);
 // insertAtpos(&head);
 display(&head);
-               
+
 return 0;
 }

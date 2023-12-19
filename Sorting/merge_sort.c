@@ -4,8 +4,7 @@
 int merge(int a[],int arr1[],int arr2[],int size,int mid){
     int i = 0 , j = 0 , k = 0;
     int n = mid , m = size - mid;
-
-
+    
     while(i < n && j < m){
         if(arr1[i] <= arr2[j]){
             a[k++] = arr1[i++];
@@ -15,8 +14,6 @@ int merge(int a[],int arr1[],int arr2[],int size,int mid){
         }
     }
 }
-
-
 
 int merge_sort(int a[],int size){
     int mid = size/2;
@@ -39,10 +36,6 @@ int merge_sort(int a[],int size){
     merge(a,arr1,arr2,size,mid);
 
 }
-
-
-
-
 int main(){
 int size = 8;
 int a[] = {90,10,20,56,70,44,33,58};

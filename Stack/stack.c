@@ -5,7 +5,7 @@
 void push(int st[], int *top){
     int x;
 
-     if(*top >= size - 1){
+    if(*top >= size - 1){
         printf("ERROR: Stack overflow.\n");
         return ;
     }

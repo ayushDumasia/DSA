@@ -75,13 +75,8 @@ enQueue(queue);//here Queue is already full
 
 deQueue(queue);
 deQueue(queue);
-
 display(queue);
-
 peep(queue);
-
-
-
 
 return 0;
 }

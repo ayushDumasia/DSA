@@ -43,9 +43,6 @@ void quickSort(int a[],int size){
     quickSort(a + left +1 , size - left -1 );
 }
 
-
-
-
 int main(){
 int a[10] = {9,56,21,48,75,32,54,02,900,58},pivot;
 int n = sizeof(a) / sizeof(a[0]);
@@ -60,7 +57,5 @@ printf("======");
 for(int i=0; i<n; i++){
     printf("%d\n",a[i]);
 }
-          
-               
 return 0;
 }

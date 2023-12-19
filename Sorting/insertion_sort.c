@@ -6,7 +6,6 @@ int swap(int x, int y){
     y = temp;
 }
 
-
 int insertion(int a[]){
 
     for(int i = 0 ; i < 10-1 ; i++){
@@ -21,17 +20,8 @@ int insertion(int a[]){
     }
 }
 
-
-
-
-
 int main(){
 int a[5] = {34,8,10,90,100};
-
-// for(int i=0; i<10; i++){
-//     scanf("%d",&a[i]);
-// }
-          
 
 insertion(a);
 

@@ -2,7 +2,7 @@
 
 int binary_search(int a[],int size,int n){
     int l = 0 , r = size -1 ;
-     
+
     while(l <= r){
     int mid = (l+r)/2;
         if(n == a[mid]){
@@ -17,9 +17,6 @@ int binary_search(int a[],int size,int n){
     }
     return -1;
 }
-
-
-
 
 int main(){
 int n;
@@ -38,7 +35,6 @@ if (c != -1) {
     else {
         printf("Element %d not found in the array.\n", n);
     }
-          
-               
+
 return 0;
 }
