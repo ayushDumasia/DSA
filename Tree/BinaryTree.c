@@ -1,151 +1,103 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<stdlib.h>
 
-// Node structure for the binary tree
-struct Node {
+typedef struct node{
     int data;
-    struct Node *left;
-    struct Node *right;
-};
+    struct node *left;
+    struct node *right;
+}node;
 
-// Function to create a new node
-struct Node* createNode(int data) {
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    newNode->data = data;
+
+node *create(int val){
+    node *newNode = (node *)malloc(sizeof(node));
+    newNode->data = val;
     newNode->left = NULL;
     newNode->right = NULL;
+
     return newNode;
 }
 
-// Function to insert a new node into the binary tree
-struct Node* insertNode(struct Node* root, int data) {
-    //base condition
-    if (root == NULL) {
-        return createNode(data);
+void insert(node **root , int val){
+    if(*root == NULL){
+        *root = create(val);
+        return ;
     }
 
-    if (data < root->data) {
-        root->left = insertNode(root->left, data);
-    } else if (data > root->data) {
-        root->right = insertNode(root->right, data);
+    if(val < (*root)->data){
+        insert(&((*root)->left),val);
     }
-
-    return root;
-}
-
-// Function to find the minimum value node in a binary tree
-struct Node* findMin(struct Node* node) {
-    while (node->left != NULL) {
-        node = node->left;
+    else if(val > (*root)->data){
+        insert(&((*root)->right),val);
     }
-    return node;
-}
-
-// Function to delete a node with a given key from the binary tree
-struct Node* deleteNode(struct Node* root, int key) {
-    if (root == NULL) {
-        return root;
-    }
-
-    if (key < root->data) {
-        root->left = deleteNode(root->left, key);
-    } else if (key > root->data) {
-        root->right = deleteNode(root->right, key);
-     } 
     else {
-        if (root->left == NULL) {
-            struct Node* temp = root->right;
-            free(root);
-            return temp;
-        } else if (root->right == NULL) {
-            struct Node* temp = root->left;
-            free(root);
-            return temp;
-        }
-
-        struct Node* temp = findMin(root->right);
-        root->data = temp->data;
-        root->right = deleteNode(root->right, temp->data);
-    }
-
-    return root;
-}
-
-// Function to search for a node with a given key in the binary tree
-struct Node* searchNode(struct Node* root, int key) {
-    if (root == NULL || root->data == key) {
-        return root;
-    }
-
-    if (key < root->data) {
-        return searchNode(root->left, key);
-    }
-
-    return searchNode(root->right, key);
-}
-
-// Function to perform in-order traversal of the binary tree
-void inOrderTraversal(struct Node* root) {
-    if (root != NULL) {
-        inOrderTraversal(root->left);
-        printf("%d ", root->data);
-        inOrderTraversal(root->right);
+        printf("Value Already Exists");
     }
 }
 
-// Function to perform pre-order traversal of the binary tree
-void preOrderTraversal(struct Node* root) {
-    if (root != NULL) {
-        printf("%d ", root->data);
-        preOrderTraversal(root->left);
-        preOrderTraversal(root->right);
+void preOrder(node *root){
+    if(root == NULL){
+        return;
     }
+
+    printf("%d ",root->data);
+    preOrder(root->left);
+    preOrder(root->right);
 }
 
-// Function to perform post-order traversal of the binary tree
-void postOrderTraversal(struct Node* root) {
-    if (root != NULL) {
-        postOrderTraversal(root->left);
-        postOrderTraversal(root->right);
-        printf("%d ", root->data);
+void postOrder(node *root){
+    if(root == NULL){
+        return;
     }
+
+    postOrder(root->left);
+    postOrder(root->right);
+    printf("%d ",root->data);
 }
 
-int main() {
-    struct Node* root = NULL;
-
-    root = insertNode(root, 50);
-    insertNode(root, 30);
-    insertNode(root, 20);
-    insertNode(root, 40);
-    insertNode(root, 70);
-    insertNode(root, 60);
-    insertNode(root, 80);
-
-    printf("In-order traversal: ");
-    inOrderTraversal(root);
-    printf("\n");
-
-    printf("Pre-order traversal: ");
-    preOrderTraversal(root);
-    printf("\n");
-
-    printf("Post-order traversal: ");
-    postOrderTraversal(root);
-    printf("\n");
-
-    int key = 40;
-    if (searchNode(root, key) != NULL) {
-        printf("%d found in the tree.\n", key);
-    } else {
-        printf("%d not found in the tree.\n", key);
+void inOrder(node *root){
+    if(root == NULL){
+        return;
     }
 
-    key = 30;
-    root = deleteNode(root, key);
-    printf("In-order traversal after deleting %d: ", key);
-    inOrderTraversal(root);
-    printf("\n");
+    inOrder(root->left);
+    printf("%d ",root->data);
+    inOrder(root->right);
+}
 
-    return 0;
+void display(node *root){
+    if(root == NULL){
+        return;
+    }
+
+    display(root->left);
+    printf("%d ",root->data);
+    display(root->right);
+}
+
+
+
+
+int main(){
+    node *root = NULL;
+
+    insert(&root,5);
+    insert(&root,1);
+    insert(&root,3);
+    insert(&root,0);
+    insert(&root,6);
+    insert(&root,4);
+    insert(&root,2);
+    insert(&root,8);
+    insert(&root,7);
+    insert(&root,9);
+
+    printf("PreOrder");
+    preOrder(root);
+    printf("InOrder");
+    inOrder(root);
+    printf("postOrder");
+    postOrder(root);
+
+
+return 0;
 }
