@@ -13,7 +13,7 @@ int selection_sort(int a[]){
             int temp  =a[i];
             a[i] = a[min];
             a[min] = temp;
-        }
+        }opinionopinion
     }
 }
 

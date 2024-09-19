@@ -36,6 +36,7 @@ int merge_sort(int a[],int size){
     merge(a,arr1,arr2,size,mid);
 
 }
+
 int main(){
 int size = 8;
 int a[] = {90,10,20,56,70,44,33,58};
